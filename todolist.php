@@ -16,7 +16,10 @@ $count2=mysqli_query($db_connect, $count_query2);
 <div class="container" >
     <div class="row">
         <div class="col-12">
-           
+           <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="todo.php">Form</a></li>
+                <li class="breadcrumb-item active">Todo list</li>
+            </ol>
             <div class="card ">
               <div class="card-header text-white bg-success">
                 <h3 class="card-title text-uppercase text-center">what i am gonna do</h3>
@@ -42,23 +45,20 @@ $count2=mysqli_query($db_connect, $count_query2);
                     </thead>
 
                     <tbody>
-                    <?php
-                    $serial=1;
-                    foreach($db_result as $result){
-                    ?> 
-                    <tr class="
-                    <?=($result["status"]=='unread' ? 'table-active':'')?>
-                    ">
-                            <td><?=$serial++?></td>
-                            <td><?=$result["my_todolist"]?></td>
-                            <td>
-                                
-                                <a type="button" class="btn btn-info" href="read.php?link=<?=$result['id']?>">mark as done</a>
-                                <a type="button" class="btn btn-danger" href="delete.php?link=<?=$result['id']?>">Delete</a>
-                            </td>
-                        </tr>
                         <?php
-                        }?>
+                            $serial=1;
+                            foreach($db_result as $result)
+                            {
+                                ?> 
+                                <tr class="<?=($result["status"]=='unread' ? 'table-active':'')?>">
+                                    <td><?=$serial++?></td>
+                                    <td><?=$result["my_todolist"]?></td>
+                                    <td>
+                                        <a type="button" class="btn btn-info" href="read.php?link=<?=$result['id']?>">mark as done</a>
+                                        <a type="button" class="btn btn-danger" href="delete.php?link=<?=$result['id']?>">Delete</a>
+                                    </td>
+                                </tr>
+                        <?}?>
                     </tbody>
                 </table>
               </div>
