@@ -16,10 +16,7 @@ $count2=mysqli_query($db_connect, $count_query2);
 <div class="container" >
     <div class="row">
         <div class="col-12">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="todo.php">Form</a></li>
-                <li class="breadcrumb-item active">Todo list</li>
-            </ol>
+           
             <div class="card ">
               <div class="card-header text-white bg-success">
                 <h3 class="card-title text-uppercase text-center">what i am gonna do</h3>
